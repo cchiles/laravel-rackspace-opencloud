@@ -31,7 +31,7 @@ class LaravelRackspaceOpencloudServiceProvider extends ServiceProvider {
 	{
 		$this->app['open-cloud'] = $this->app->share(function($app)
         {
-            return new OpenCloud;
+            return new OpenCloud($app['config']);
         });
 
         $this->app['cdn.sync'] = $this->app->share(function($app)
